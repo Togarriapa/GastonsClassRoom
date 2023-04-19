@@ -35,17 +35,13 @@ messageForm.addEventListener('submit', async event => {
         body: JSON.stringify({ message, userAge }) // Include age in the request body
       });
 
+
       const data = await response.json();
 
-
-      console.log("I GOT THIS SHIT MTHFCKERS" + data.response)
-      
+      const messageElement = document.createElement('div');
+      messageElement.classList.add('message');
       messageElement.textContent = data.response;
-
-      // testing
-      console.log("I've got this data: " + data)
-
-
+      chatBox.appendChild(messageElement);
 
     } catch (error) {
       console.error('Error fetching chat response:', error);
