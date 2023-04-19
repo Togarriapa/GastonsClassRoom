@@ -20,11 +20,7 @@ messageForm.addEventListener('submit', async event => {
 
   if (message) {
 
-    const messageElement = document.createElement('div');
-    messageElement.classList.add('message');
-    messageElement.textContent = message;
-    chatBox.appendChild(messageElement);
-    messageInput.value = "";
+    addTextToChat(message);
 
     try {
       const response = await fetch('/api-chat', {
@@ -38,16 +34,24 @@ messageForm.addEventListener('submit', async event => {
 
       const data = await response.json();
 
-      const messageElement = document.createElement('div');
-      messageElement.classList.add('message');
-      messageElement.textContent = data.response;
-      chatBox.appendChild(messageElement);
+      addTextToChat(data.response)
 
     } catch (error) {
       console.error('Error fetching chat response:', error);
     }
   }
 });
+
+function addTextToChat(text){
+
+  const messageElement = document.createElement('div');
+  messageElement.classList.add('message');
+  messageElement.textContent = text;
+  chatBox.appendChild(messageElement);
+  messageInput.value = "";
+
+
+}
 
 
 

@@ -34,11 +34,12 @@ app.post('/api-chat', async (req, res) => {
         const response = await axios.post(
             'https://api.openai.com/v1/engines/text-davinci-002/completions',
             {
-                prompt: `Answer according to the following criteria:
-                Give the answer like you were explaining it to a ${age} year old kid,
-                Keep the explanations short and simple,
-                Keep the content age appropriate,
-                Answer the questions writing the like Gaston from Disney (Use its personality and trades),
+                prompt: `Answer the next questions like Gaston, the Disney villan would and acording to these criteria:
+                The answer must be age apropriate,
+                The answer must be given in a way that a ${age} year old person would understand,
+                The answer must be accurate but given in a fun way,
+                The answer must contain disney references, and be writen like Gaston would (Use it's Personality, Mannerisms, Quirks and Trades)
+                If the the message given isn't a question, ask for a question in a fun way
                 Question: ${message}`,
                 max_tokens: 2048,
                 n: 1,

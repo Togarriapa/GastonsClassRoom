@@ -11,6 +11,15 @@ h1 {
   margin-bottom: 30px;
 }
 
+p{
+
+  text-align: center;
+  font-size: 38px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+
+}
+
 input[type="number"] {
   padding: 10px;
   border: 2px solid #333;
@@ -24,7 +33,7 @@ input[type="number"] {
   display: block;
 }
 
-button[type="submit"] {
+#submitAge {
   background-color: #333;
   color: #fff;
   padding: 10px 20px;
@@ -36,8 +45,7 @@ button[type="submit"] {
   cursor: pointer;
   width: 2000px;
 }
-
-button[type="submit"]:hover {
+#submitAge:hover {
   background-color: #444;
 }
 
