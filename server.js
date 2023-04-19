@@ -15,6 +15,12 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+app.get('/start', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'AgeCollection.html'));
+});
+
+
+
 app.post('/api/chat', async (req, res) => {
     try {
         const message = req.body.message;

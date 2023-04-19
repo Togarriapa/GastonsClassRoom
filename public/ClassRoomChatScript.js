@@ -3,11 +3,6 @@ const messageInput = document.getElementById('message-input');
 const chatBox = document.getElementById('chat-box');
 const clearButton = document.getElementById('clear-button');
 const exportButton = document.getElementById('export-button');
-
-
-
-
-
 messageForm.addEventListener('submit', event => {
   event.preventDefault();
   const message = messageInput.value.trim();
@@ -19,11 +14,9 @@ messageForm.addEventListener('submit', event => {
     messageInput.value = '';
   }
 });
-
 clearButton.addEventListener('click', () => {
   chatBox.innerHTML = '';
 });
-
 exportButton.addEventListener('click', () => {
   const messages = chatBox.querySelectorAll('.message');
   const text = Array.from(messages).map(message => message.textContent).join('\n');
@@ -31,9 +24,6 @@ exportButton.addEventListener('click', () => {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'Lesson_with_Gaston.txt';
+  a.download = 'Todays_Lesson_With_Gaston.txt';
   a.click();
 });
-
-
-  
