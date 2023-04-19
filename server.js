@@ -9,8 +9,8 @@ const app = express();
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-var firstTime = true;
 
+// powrangers2023 powrangers
 
 
 app.get('/', (req, res) => {
@@ -21,17 +21,13 @@ app.get('/start', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'AgeCollection.html'));
 });
 
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'login.html'));
+});
+
 
 app.post('/api-chat', async (req, res) => {
     try {
-
-        // if (firstTime) {
-        //     // do something
-        //     firstTime = false;
-        // } else { 
-        //     // do something
-        // }
-
         const age = req.body.userAge;
         const message = req.body.message;
         const apiKey = process.env.OPENAI_API_KEY;
@@ -48,7 +44,7 @@ app.post('/api-chat', async (req, res) => {
                 The answer must be age apropriate for people with ${age} years old,
                 The answer must contain Disney references and be writen like Gaston would (Use it's Personality, Mannerisms, Quirks and Trades),
                 The answer must be accurate but given in a funny way,
-                If the the first message given isn't a question, ask for a question in a fun way,
+                Always include Gaston or Disney trivia in the answer,
                 Be entertaining,
                 Question: ${message}`,
                 max_tokens: 2048,
@@ -66,7 +62,7 @@ app.post('/api-chat', async (req, res) => {
         const chatResponse = response.data.choices[0].text.trim();
 
         console.log("I've got this response:" + chatResponse)
-        res.json({ response: chatResponse });
+        res.json({ response: "Gatson: " + chatResponse });
         //res.json({ message: chatResponse });
 
     } catch (error) {
