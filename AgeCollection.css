@@ -1,0 +1,54 @@
+
+      body {
+        background-color: #ffd6b6;
+        font-family: Arial, sans-serif;
+        color: #222;
+      }
+      
+      h1 {
+        text-align: center;
+        font-size: 48px;
+        margin-top: 50px;
+        margin-bottom: 30px;
+      }
+      
+      input[type="clientAge"] {
+        padding: 10px;
+        border: 2px solid #333;
+        border-radius: 4px;
+        font-size: 24px;
+        text-align: center;
+        background-color: #ffe6cc;
+        color: #333;
+        width: 200px;
+        margin: 0 auto;
+        display: block;
+      }
+      
+      input[type="submit"] {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        font-size: 24px;
+        display: block;
+        margin: 30px auto;
+        cursor: pointer;
+      }
+      
+      input[type="submit"]:hover {
+        background-color: #444;
+      }
+      
+      /* Gaston image */
+      #gaston {
+        display: block;
+        margin: 0 auto;
+        width: 300px;
+        height: 300px;
+        background-image: url('https://www.disneyclips.com/imagesnewb/images/gaston5.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
