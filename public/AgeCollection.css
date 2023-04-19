@@ -33,21 +33,27 @@ input[type="number"] {
   display: block;
 }
 
-#submitAge {
-  background-color: #333;
+/* Update the button styles */
+button {
+  background-color: black;
   color: #fff;
-  padding: 10px 20px;
+  padding: 15px 30px;
   border: none;
   border-radius: 4px;
-  font-size: 24px;
+  font-size: 20px;
   display: block;
   margin: 30px auto;
   cursor: pointer;
-  width: 2000px;
+  text-transform: uppercase; /* Make the text uppercase */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Add smooth transitions */
+  width: auto; /* Change width to auto to fit the content */
 }
-#submitAge:hover {
+
+button:hover {
   background-color: #444;
+  transform: scale(1.05); /* Slightly scale the button on hover */
 }
+
 
 /* Gaston image */
 #gaston {

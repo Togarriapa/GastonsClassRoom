@@ -1,6 +1,6 @@
 const ageForm = document.getElementById('ageForm');
 
-ageForm.addEventListener('submit', (event) => {
+ageForm.addEventListener('click', (event) => {
   event.preventDefault();
 
   const myAge = document.getElementById('realAge');
@@ -9,7 +9,7 @@ ageForm.addEventListener('submit', (event) => {
   const message = myAge.value;
 
   localStorage.setItem('age',myAge.value);
-  
+
   if (message) {
     console.log("Saved age: " + myAge.value);
 
