@@ -9,7 +9,7 @@ const app = express();
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-let ageInput = "8";
+
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
@@ -20,16 +20,22 @@ app.get('/start', (req, res) => {
 });
 
 
-
-app.post('/api/chat', async (req, res) => {
+app.post('/ClassRoom', async (req, res) => {
     try {
+
+        const age = req.query.age;
         const message = req.body.message;
         const apiKey = process.env.OPENAI_API_KEY;
+
+
+        console.log(`Im here with the values: age: ${age}  -- message: ${message}   -- ${apiKey}`)
+
+
         const response = await axios.post(
             'https://api.openai.com/v1/engines/text-davinci-002/completions',
             {
                 prompt: `Answer according to the following criteria:
-                Give the answer like you were explaining it to a ${ageInput} year old kid,
+                Give the answer like you were explaining it to a ${age} year old kid,
                 Keep the explanations short and simple,
                 Keep the content age appropriate,
                 Answer the questions writing the like Gaston from Disney (Use its personality and trades),
@@ -47,7 +53,9 @@ app.post('/api/chat', async (req, res) => {
             }
         );
         const chatResponse = response.data.choices[0].text.trim();
-        res.json({ response: chatResponse });
+        //res.json({ response: chatResponse });
+        res.json({ message: chatResponse });
+
     } catch (error) {
         console.log(error);
         if (error.response && error.response.status === 429) {

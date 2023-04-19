@@ -1,8 +1,7 @@
-document.getElementById('chat-form').addEventListener('submit', async (event) => {
-
+document.getElementById('sendMessage').addEventListener('submit', async (event) => {
     console.log("Im here")
     event.preventDefault();
-    const message = document.getElementById('message').value;
+    const message = document.getElementById('message-input').value;
     console.log("The message is: " + message)
     const responseDiv = document.getElementById('response');
     

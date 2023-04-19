@@ -8,12 +8,11 @@ ageForm.addEventListener('submit', (event) => {
   event.preventDefault();
   const message = myAge.value;
 
-  localStorage.setItem('age', myAge.value);
-
+  localStorage.setItem('age',myAge.value);
+  
   if (message) {
-    localStorage.setItem('age', myAge.value);
-    console.log("Saved age: " + localStorage.getItem('age'));
+    console.log("Saved age: " + myAge.value);
 
-    window.location.href = 'ClassRoom.html';
+    window.location.href = `ClassRoom.html?age=${myAge.value}`;
   }
 });
