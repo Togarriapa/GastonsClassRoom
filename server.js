@@ -20,10 +20,10 @@ app.get('/start', (req, res) => {
 });
 
 
-app.post('/ClassRoom', async (req, res) => {
+app.post('/api-chat', async (req, res) => {
     try {
 
-        const age = req.query.age;
+        const age = req.body.userAge;
         const message = req.body.message;
         const apiKey = process.env.OPENAI_API_KEY;
 
@@ -53,8 +53,10 @@ app.post('/ClassRoom', async (req, res) => {
             }
         );
         const chatResponse = response.data.choices[0].text.trim();
-        //res.json({ response: chatResponse });
-        res.json({ message: chatResponse });
+
+        console.log("I've got this response:" + chatResponse)
+        res.json({ response: chatResponse });
+        //res.json({ message: chatResponse });
 
     } catch (error) {
         console.log(error);
