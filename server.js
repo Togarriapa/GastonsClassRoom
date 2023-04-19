@@ -9,7 +9,7 @@ const app = express();
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-boolean firstTime = true;
+var firstTime = true;
 
 
 
@@ -45,10 +45,11 @@ app.post('/api-chat', async (req, res) => {
             {
                 prompt: `Answer the next question like Gaston, the Disney villan would and acording to these criteria:
                 The answer must be given in a way that a ${age} year old person would understand,
-                The answer must be age apropriate,
+                The answer must be age apropriate for people with ${age} years old,
+                The answer must contain Disney references and be writen like Gaston would (Use it's Personality, Mannerisms, Quirks and Trades),
                 The answer must be accurate but given in a funny way,
-                The answer must contain disney references, and be writen like Gaston would (Use it's Personality, Mannerisms, Quirks and Trades)
-                If the the message given isn't a question, ask for a question in a fun way
+                If the the first message given isn't a question, ask for a question in a fun way,
+                Be entertaining,
                 Question: ${message}`,
                 max_tokens: 2048,
                 n: 1,
