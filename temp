@@ -1,0 +1,48 @@
+const express = require('express');
+const axios = require('axios');
+const dotenv = require('dotenv');
+const bodyParser = require('body-parser');
+const path = require('path');
+
+dotenv.config();
+
+const app = express();
+app.use(bodyParser.json());
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.post('/api/chat', async (req, res) => {
+    try {
+        const message = req.body.message;
+        const apiKey = process.env.OPENAI_API_KEY;
+
+        const response = await axios.post(
+            'https://api.openai.com/v1/engines/davinci-codex/completions',
+            {
+                prompt: `You are an AI language model and you should always reply as if you were talking with a little kid. Question: ${message}`,
+                max_tokens: 50,
+                n: 1,
+                stop: null,
+                temperature: 0.8,
+            },
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`,
+                },
+            }
+        );
+
+        const chatResponse = response.data.choices[0].text.trim();
+        res.json({ response: chatResponse });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Unable to get a response from the ChatGPT API.' });
+    }
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+});
