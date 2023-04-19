@@ -9,6 +9,8 @@ const app = express();
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
+boolean firstTime = true;
+
 
 
 app.get('/', (req, res) => {
@@ -23,6 +25,13 @@ app.get('/start', (req, res) => {
 app.post('/api-chat', async (req, res) => {
     try {
 
+        // if (firstTime) {
+        //     // do something
+        //     firstTime = false;
+        // } else { 
+        //     // do something
+        // }
+
         const age = req.body.userAge;
         const message = req.body.message;
         const apiKey = process.env.OPENAI_API_KEY;
@@ -34,10 +43,10 @@ app.post('/api-chat', async (req, res) => {
         const response = await axios.post(
             'https://api.openai.com/v1/engines/text-davinci-002/completions',
             {
-                prompt: `Answer the next questions like Gaston, the Disney villan would and acording to these criteria:
-                The answer must be age apropriate,
+                prompt: `Answer the next question like Gaston, the Disney villan would and acording to these criteria:
                 The answer must be given in a way that a ${age} year old person would understand,
-                The answer must be accurate but given in a fun way,
+                The answer must be age apropriate,
+                The answer must be accurate but given in a funny way,
                 The answer must contain disney references, and be writen like Gaston would (Use it's Personality, Mannerisms, Quirks and Trades)
                 If the the message given isn't a question, ask for a question in a fun way
                 Question: ${message}`,

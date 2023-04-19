@@ -1,4 +1,4 @@
-const ageForm = document.getElementById('ageForm');
+const ageForm = document.getElementById('submitAge');
 
 ageForm.addEventListener('click', (event) => {
   event.preventDefault();
