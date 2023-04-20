@@ -204,8 +204,9 @@ transform: scale(1.1);
 }
 
 #cornoId:hover {
-  transform: scale(1.1);
+  filter: drop-shadow(4px 4px 8px rgba(255, 204, 0));
 }
+
 
 /* style.css */
 .animated {
@@ -265,5 +266,34 @@ to give the animation a nicer effect. */
   top: 44.5vh;
   transform: scale(0.86);
   left: 37vh;
-  transition: transform 0.3s ease;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+  transition: filter 0.2s ease-in-out;
   }
+
+
+  #video-wrapper {
+    width: 80%;
+    height: 0;
+    padding-bottom: 45%;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#video-container, #gif-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#video-wrapper {
+  /* Position the element relative to its normal position */
+  position: relative;
+  width: 40%;
+  height: 10%;
+  /* Move the element to the desired position */
+  top: -90vh;
+  left: 80vh;
+}
