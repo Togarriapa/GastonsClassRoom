@@ -65,10 +65,13 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById('speak').addEventListener('click', function() {
         const parentDiv = document.querySelector('#chat-box');
         const messageDivs = parentDiv.querySelectorAll('.message');
-        const text = messageDivs[messageDivs.length - 1].textContent;
+        const text = messageDivs[messageDivs.length - 1].textContent.replace('Gatson:', '').trim();
         const utterance = new SpeechSynthesisUtterance(text);
 
-        console.log("trying to speak: " + text)
+        console.log("trying to speak: " + text.replace('Gatson:', '').trim())
+    
+
+
       
         // Set the voice properties (optional)
         // You can customize the voice, rate, pitch, and volume

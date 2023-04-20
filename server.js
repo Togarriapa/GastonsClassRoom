@@ -62,7 +62,7 @@ app.post('/api-chat', async (req, res) => {
         const chatResponse = response.data.choices[0].text.trim();
 
         console.log("I've got this response:" + chatResponse)
-        res.json({ response: "Gatson: " + chatResponse });
+        res.json({ response: "Gaston: " + chatResponse });
         //res.json({ message: chatResponse });
 
     } catch (error) {
