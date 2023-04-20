@@ -17,16 +17,17 @@ main {
 }
 #chat-box {
   position: absolute;
-  background: transparent;
+  background: transparent; /* Use rgba for 30% transparency */
   top: 60vh;
   left: 60vh;
   width: 50%;
   height: 300px;
-  border: 3px solid #3E3E3E;
+  
   overflow-y: scroll;
   margin-bottom: 20px;
   padding: 10px;
 }
+
 #chat-box .message {
   background-color: #F9C46B;
   color: #3E3E3E;
