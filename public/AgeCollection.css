@@ -5,14 +5,19 @@ body {
 }
 
 h1 {
+  top: -80vh;
+  position: absolute;
   text-align: center;
   font-size: 48px;
   margin-top: 50px;
   margin-bottom: 30px;
+  color: white;
 }
 
 p{
-
+  color: white;
+  top: -75vh;
+  position: absolute;
   text-align: center;
   font-size: 38px;
   margin-top: 50px;
@@ -21,6 +26,8 @@ p{
 }
 
 input[type="number"] {
+  top: -70vh;
+  position: absolute;
   padding: 10px;
   border: 2px solid #333;
   border-radius: 4px;
@@ -35,6 +42,10 @@ input[type="number"] {
 
 /* Update the button styles */
 button {
+
+  
+  position: absolute;
+  top: -50vh;
   background-color: black;
   color: #fff;
   padding: 15px 30px;
@@ -65,4 +76,12 @@ button:hover {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.backgroundImage {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  width: auto;
+  height: 100vh;
 }

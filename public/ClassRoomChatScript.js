@@ -20,7 +20,7 @@ messageForm.addEventListener('submit', async event => {
 
   if (message) {
 
-    addTextToChat(message);
+    addTextToChat("Kid: " + message);
 
     try {
       const response = await fetch('/api-chat', {
