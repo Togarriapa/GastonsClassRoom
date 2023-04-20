@@ -57,48 +57,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if ('speechSynthesis' in window) {
         console.log('Your browser supports the Web Speech API.');
+      
       } else {
         console.log('Sorry, your browser does not support the Web Speech API.');
       }
 
-populateVoiceList();
-
-    document.getElementById('speak').addEventListener('click', function() {
+      document.getElementById('speak').addEventListener('click', function() {
         const parentDiv = document.querySelector('#chat-box');
         const messageDivs = parentDiv.querySelectorAll('.message');
         const text = messageDivs[messageDivs.length - 1].textContent;
         const utterance = new SpeechSynthesisUtterance(text);
 
-        const voiceList = document.getElementById('voice-list');
-        const selectedVoiceIndex = parseInt(voiceList.value, 10);
-        const voices = speechSynthesis.getVoices();
-        const selectedVoice = voices[selectedVoiceIndex];
-
-        utterance.voice = selectedVoice;
+        console.log("trying to speak: " + text)
+      
+        // Set the voice properties (optional)
+        // You can customize the voice, rate, pitch, and volume
+        utterance.voice = speechSynthesis.getVoices()[0];
         utterance.rate = 1;
         utterance.pitch = 1;
         utterance.volume = 1;
-
-  speechSynthesis.speak(utterance);
-});
+      
+        speechSynthesis.speak(utterance);
+      });
 
     
-      function populateVoiceList() {
-        const voices = speechSynthesis.getVoices();
-        const voiceList = document.getElementById('voice-list');
-      
-        // Clear any existing options
-        voiceList.innerHTML = '';
-      
-        voices.forEach((voice, i) => {
-          const option = document.createElement('option');
-          option.value = i;
-          option.textContent = `${voice.name} (${voice.lang})`;
-          console.log("Voice name: " + voice.name);
-          console.log("Voice name: " + voice.lang);
-
-          voiceList.appendChild(option);
-        });
-      }
-  
   });
