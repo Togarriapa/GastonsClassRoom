@@ -57,7 +57,12 @@ function addTextToChat(text){
 
 
 clearButton.addEventListener('click', () => {
-  chatBox.innerHTML = '';
+  const chatBox = document.getElementById('chat-box');
+  const messageDivs = chatBox.querySelectorAll('.message');
+
+  messageDivs.forEach((message) => {
+    chatBox.removeChild(message);
+  });
 });
 
 
