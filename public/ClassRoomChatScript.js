@@ -71,3 +71,4 @@ exportButton.addEventListener('click', () => {
   a.download = 'Todays_Lesson_With_Gaston.txt';
   a.click();
 });
+

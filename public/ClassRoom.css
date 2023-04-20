@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap'); */
 body {
   background-color: #F9C46B;
   font-family: 'Arial', sans-serif;
@@ -16,10 +16,13 @@ main {
   align-items: center;
 }
 #chat-box {
-  width: 80%;
+  position: absolute;
+  background: transparent;
+  top: 60vh;
+  left: 60vh;
+  width: 50%;
   height: 300px;
   border: 3px solid #3E3E3E;
-  background-color: white;
   overflow-y: scroll;
   margin-bottom: 20px;
   padding: 10px;
@@ -54,4 +57,198 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+.hidden {
+  display: none;
+}
+
+
+/* new CSS */
+.backgroundImage {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  width: auto;
+  height: 100vh;
+}
+
+.gaston-image {
+  position: absolute;
+  top: 74.5%;
+  left: -300px;
+  transform: translate(-50%, -50%) scale(0.5);
+  animation: gaston-animation 5s forwards;
+}
+
+@keyframes gaston-animation {
+      0% {
+        left: -100px;
+        transform: translate(-50%, -50%) scale(0.5);
+      }
+      50% {
+        left: calc(50% - 50px);
+        transform: translate(-50%, -50%) scale(0.5);
+      }
+      100% {
+        left: calc(50% - 50px);
+        transform: translate(-50%, -50%) scale(0.5);
+      }
+    } 
+                  /* CANNOT DISSAPEAR */ 
+    @keyframes gaston-animation-2nd {
+      0% {
+        left: calc(50% - 650px);
+        transform: translate(-50%, -50%) scale(0.5);
+      }
+      100% {
+        left: calc(50% - -50px);
+        transform: translate(-50%, -50%) scale(0.5);
+      }
+    }
+
+
+/* Remove the hover animation */
+.gaston-image:hover {
+}
+
+.gaston-image-move-left-2nd {
+  animation: gaston-move-left-2nd 2s forwards;
+}
+.gaston-image-move-right-2nd {
+  animation: gaston-animation-2nd 2s forwards;
+}
+
+@keyframes gaston-move-left {
+  0% {
+    left: calc(50% - 50px);
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  100% {
+    left: -300px;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+}
+
+            /* CANNOT DISSAPEAR */ 
+@keyframes gaston-move-left-2nd {
+  0% {
+    left: calc(50% - -50px);
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  100% {
+    left: calc(50% - 650px);
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+}
+
+
+/* Update the gaston-animation */
+@keyframes gaston-animation {
+0% {
+  left: -100px;
+  transform: translate(-50%, -50%) scale(0.5);
+}
+50% {
+  left: calc(50% - 50px);
+  transform: translate(-50%, -50%) scale(0.5);
+}
+100% {
+  left: calc(50% - 50px);
+  transform: translate(-50%, -50%) scale(0.5);
+}
+}
+
+/* Add the speech bubble animation */
+@keyframes show-speech-bubble {
+0% {
+  transform: scale(0);
+}
+50% {
+  transform: scale(1.25);
+}
+100% {
+  transform: scale(1);
+}
+}
+
+#SpeechBubble {
+position: absolute;
+transform-origin: 0% 100%;
+text-align: center;
+background-color: #5a5a5a;
+color: white;
+border-radius: 10px;
+width: 145px;
+padding: 10px;
+left: 750px; 
+top: -75px;
+transform: scale(0);
+font-size: 38px;
+display: none;
+}
+
+
+
+#quadroId {
+position: absolute;
+transform-origin: 0% 100%;
+text-align: center;
+top: 30vh;
+left: 130vh;
+transition: transform 0.3s ease;
+}
+
+#quadroId:hover {
+transform: scale(1.1);
+}
+
+/* style.css */
+.animated {
+transform: scale(1.1);
+transition: transform 0.3s ease;
+}
+
+
+
+/* We need to add a tail to the speech bubble. This is done using
+the ::before pseudo-element. The tail's size is controlled by 
+its borders. The right and bottom borders are given a transparent
+color so that the tail still retains its shape while giving the
+desired look */
+#SpeechBubble::before {
+content: "";
+display: block;
+width: 0;
+position: absolute;
+bottom: -25px;
+left: 5px;
+border-style: solid;
+border-width: 15px;
+border-color: #5a5a5a transparent transparent #5a5a5a;
+transform: rotate(10deg);
+}
+
+/* Here the scale changes from 0 to 1. To add the bounciness 
+effect, the scale is set to 1.25 midway through the animation
+to give the animation a nicer effect. */
+@keyframes expand-bounce {
+0% {
+  transform: scale(0);
+}
+50% {
+  transform: scale(1.25);
+}
+100% {
+  transform: scale(1);
+}
+}
+
+/* Here the scale simply goes from 1 back to 0 */
+@keyframes shrink {
+0% {
+  transform: scale(1);
+}
+100% {
+  transform: scale(0);
+}
 }
