@@ -203,6 +203,10 @@ transition: transform 0.3s ease;
 transform: scale(1.1);
 }
 
+#cornoId:hover {
+  transform: scale(1.1);
+}
+
 /* style.css */
 .animated {
 transform: scale(1.1);
@@ -253,3 +257,13 @@ to give the animation a nicer effect. */
   transform: scale(0);
 }
 }
+
+#cornoId {
+  position: absolute;
+  transform-origin: 0% 100%;
+  text-align: center;
+  top: 44.5vh;
+  transform: scale(0.86);
+  left: 37vh;
+  transition: transform 0.3s ease;
+  }
